@@ -4,7 +4,12 @@ import { Server, Socket } from "socket.io";
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "*", 
+    methods: ["GET", "POST"]
+  }
+});
 
 app.use(express.static("public"));
 

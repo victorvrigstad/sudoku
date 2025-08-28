@@ -14,7 +14,7 @@
 
     <script src="https://cdn.socket.io/4.10.1/socket.io.min.js"></script>
     <script>
-      const socket = io("https://sudoku-1ot6.onrender.com/");
+      const socket = io("https://sudoku-1ot6.onrender.com", { path: "/socket.io" });
 
       function sendMessage() {
         const input = document.getElementById("msgInput");
