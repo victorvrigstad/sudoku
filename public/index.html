@@ -12,9 +12,9 @@
     <button onclick="sendMessage()">Send</button>
     <ul id="messages"></ul>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.10.1/socket.io.min.js"></script>
     <script>
-      const socket = io();
+      const socket = io("https://multiplayer-test-sudoku.onrender.com");
 
       function sendMessage() {
         const input = document.getElementById("msgInput");

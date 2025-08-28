@@ -1,3 +1,4 @@
+"use strict";
 /*const app = document.getElementById("app");
 
 if (app) {
@@ -6,6 +7,7 @@ if (app) {
 } else {
   console.error("App div not found!");
 }*/
+Object.defineProperty(exports, "__esModule", { value: true });
 const createBoard = () => {
     const board = [];
     for (let row = 0; row < 9; row++) {
@@ -60,5 +62,4 @@ const renderBoard = (board) => {
 };
 const board = createBoard();
 renderBoard(board);
-export {};
 //# sourceMappingURL=index.js.map
