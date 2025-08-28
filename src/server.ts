@@ -1,24 +1,27 @@
 import express from "express";
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
+import path from "path";
 
 const app = express();
 const httpServer = createServer(app);
+
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", 
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
 
-app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, "../public")));
 
 io.on("connection", (socket: Socket) => {
   console.log("A user connected:", socket.id);
 
   socket.on("chatMessage", (msg: string) => {
     console.log("Message:", msg);
-    io.emit("chatMessage", msg); // broadcast to everyone
+    io.emit("chatMessage", msg); 
   });
 
   socket.on("disconnect", () => {
@@ -28,5 +31,5 @@ io.on("connection", (socket: Socket) => {
 
 const PORT = process.env.PORT || 3000;
 httpServer.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

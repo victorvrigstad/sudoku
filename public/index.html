@@ -18,6 +18,7 @@
 
       function sendMessage() {
         const input = document.getElementById("msgInput");
+        if(input.value.trim() === "") return;
         socket.emit("chatMessage", input.value);
         input.value = "";
       }
